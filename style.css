@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #cce7ff, #e8d9ff);
+    transition: opacity 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: #7b3fe4;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 span {
+    color: #ff4fa3;
+}
+
+.input-box input, .input-box select, .input-box button {
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid #7b3fe4;
+    font-size: 16px;
+}
+
+.input-box button {
+    background-color: #7b3fe4;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-box button:hover {
+    background-color: #5a2dbd;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+    color: #ff4fa3;
+    margin-top: 10px;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Career Explorer</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Careers</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Dream Big, <span>Start Today!</span></h1>
+        <p>Tell us what you're studying now, and your dream career 🚀</p>
+
+        <div class="input-boxes">
+            <input type="text" id="classNum" placeholder="Enter your class (e.g., 10)">
+            <select id="career">
+                <option value="">Select Your Dream Career</option>
+                <option>Doctor</option>
+                <option>Engineer</option>
+                <option>Software Developer</option>
+                <option>Data Scientist</option>
+                <option>IAS Officer</option>
+                <option>IPS Officer</option>
+                <option>Army Officer</option>
+                <option>Journalist</option>
+                <option>Lawyer</option>
+                <option>Architect</option>
+                <option>Pilot</option>
+                <option>Scientist</option>
+                <option>Teacher</option>
+                <option>Professor</option>
+                <option>Chartered Accountant</option>
+                <option>Entrepreneur</option>
+                <option>Fashion Designer</option>
+                <option>Photographer</option>
+                <option>Psychologist</option>
+                <option>Artist</option>
+            </select>
+            <button onclick="goNext()">Next</button>
+        </div>
+    </section>
+
+    <!-- Career Cards Section -->
+    <section class="cards">
+        <div class="card">
+            <h3>Doctor</h3>
+            <p>Help people and save lives with compassion and science.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Engineer</h3>
+            <p>Create machines, bridges, and future technology.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Artist</h3>
+            <p>Paint, draw, or design to share your imagination.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Teacher</h3>
+            <p>Inspire students and spread knowledge everywhere.</p>
+            <button>Explore</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <<i class="fa fa-align-center" aria-hidden="true"></i>
+        ✨ Believe in yourself – your future starts here! ✨
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function goNext() {
+            const cls = document.getElementById("classNum").value;
+            const career = document.getElementById("career").value;
+
+            if (cls === "" || career === "") {
+                alert("Please enter your class and select a career.");
+                return;
+            }
+
+            window.location.href = "career.html?class=" + cls + "&career=" + career;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Career Path</title>
+    <link rel="stylesheet" href="career.html">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .final {
+            background: #43e97b;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div><b>Career Explorer</b></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Careers</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Your Career Roadmap</h1>
+    <div id="output"></div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const cls = params.get("class");
+const career = params.get("career");
+
+const careerPaths = {
+
+"Doctor": {
+    after10th: "Choose BiPC",
+    intermediate: "Intermediate BiPC",
+    entrance: "NEET UG",
+    degree: "MBBS",
+    books: ["NCERT Biology", "HC Verma", "NEET PYQs"],
+    final: "Doctor 🩺"
+},
+
+"Engineer": {
+    after10th: "Choose MPC",
+    intermediate: "Intermediate MPC",
+    entrance: "JEE / EAMCET",
+    degree: "B.Tech",
+    books: ["NCERT", "HC Verma", "RD Sharma"],
+    final: "Engineer 💻"
+},
+
+"Software Developer": {
+    after10th: "MPC or any with Maths",
+    intermediate: "With Maths",
+    entrance: "JEE / Direct",
+    degree: "B.Tech / B.Sc CS",
+    books: ["C Programming", "Python", "DSA"],
+    final: "Software Developer 👨‍💻"
+},
+
+"Data Scientist": {
+    after10th: "MPC",
+    intermediate: "Maths focus",
+    entrance: "JEE",
+    degree: "B.Tech / Data Science",
+    books: ["Python", "Statistics", "ML"],
+    final: "Data Scientist 📊"
+},
+
+"IAS Officer": {
+    after10th: "Any stream",
+    intermediate: "Any",
+    entrance: "UPSC",
+    degree: "Any Graduation",
+    books: ["NCERT", "Polity"],
+    final: "IAS Officer 🏛️"
+},
+
+"IPS Officer": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "UPSC",
+    degree: "Any Graduation",
+    books: ["NCERT", "Current Affairs"],
+    final: "IPS Officer 🚓"
+},
+
+"Army Officer": {
+    after10th: "Any",
+    intermediate: "NDA",
+    entrance: "NDA / CDS",
+    degree: "Defense Training",
+    books: ["Maths", "GK"],
+    final: "Army Officer 🪖"
+},
+
+"Journalist": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "Media exams",
+    degree: "BJMC",
+    books: ["English", "News"],
+    final: "Journalist 📰"
+},
+
+"Lawyer": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "CLAT",
+    degree: "LLB",
+    books: ["Legal Aptitude"],
+    final: "Lawyer ⚖️"
+},
+
+"Architect": {
+    after10th: "MPC",
+    intermediate: "Maths",
+    entrance: "NATA",
+    degree: "B.Arch",
+    books: ["Drawing"],
+    final: "Architect 🏗️"
+},
+
+"Pilot": {
+    after10th: "MPC",
+    intermediate: "Physics",
+    entrance: "DGCA",
+    degree: "Pilot Training",
+    books: ["Physics"],
+    final: "Pilot ✈️"
+},
+
+"Scientist": {
+    after10th: "Science",
+    intermediate: "Science",
+    entrance: "JEE",
+    degree: "BSc/MSc/PhD",
+    books: ["NCERT"],
+    final: "Scientist 🔬"
+},
+
+"Teacher": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "TET",
+    degree: "B.Ed",
+    books: ["Pedagogy"],
+    final: "Teacher 👩‍🏫"
+},
+
+"Professor": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "NET",
+    degree: "PhD",
+    books: ["Advanced Subjects"],
+    final: "Professor 🎓"
+},
+
+"Chartered Accountant": {
+    after10th: "Commerce",
+    intermediate: "MEC/CEC",
+    entrance: "CA Foundation",
+    degree: "CA",
+    books: ["ICAI Material"],
+    final: "Chartered Accountant 💼"
+},
+
+"Entrepreneur": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "No exam",
+    degree: "Business Skills",
+    books: ["Marketing"],
+    final: "Entrepreneur 🚀"
+},
+
+"Fashion Designer": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "NIFT",
+    degree: "Fashion Design",
+    books: ["Design"],
+    final: "Fashion Designer 👗"
+},
+
+"Photographer": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "No exam",
+    degree: "Photography",
+    books: ["Camera Skills"],
+    final: "Photographer 📸"
+},
+
+"Psychologist": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "University",
+    degree: "Psychology",
+    books: ["Basics"],
+    final: "Psychologist 🧠"
+},
+
+"Artist": {
+    after10th: "Any",
+    intermediate: "Any",
+    entrance: "Optional",
+    degree: "Fine Arts",
+    books: ["Drawing"],
+    final: "Artist 🎨"
+}
+
+};
+
+const output = document.getElementById("output");
+
+if (!careerPaths[career]) {
+    output.innerHTML = "<p style='text-align:center;'>Please select a valid career from homepage</p>";
+} else {
+    const c = careerPaths[career];
+
+    output.innerHTML = `
+        <div class="card"><h2>${career}</h2><p>Class: ${cls}</p></div>
+        <div class="card"><h3>After 10th</h3><p>${c.after10th}</p></div>
+        <div class="card"><h3>Intermediate</h3><p>${c.intermediate}</p></div>
+        <div class="card"><h3>Entrance</h3><p>${c.entrance}</p></div>
+        <div class="card"><h3>Degree</h3><p>${c.degree}</p></div>
+        <div class="card"><h3>Books</h3><ul>${c.books.map(b => `<li>${b}</li>`).join("")}</ul></div>
+        <div class="card final"><h3>Final Goal</h3><p>${c.final}</p></div>
+    `;
+}
+</script>
+
+</body>
+</html>
